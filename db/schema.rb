@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_18_160001) do
+ActiveRecord::Schema.define(version: 2021_09_18_181951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2021_09_18_160001) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_monuments_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "monument_id", null: false
+    t.datetime "date_of_delivery"
+    t.datetime "date_of_return"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["monument_id"], name: "index_rentals_on_monument_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +49,6 @@ ActiveRecord::Schema.define(version: 2021_09_18_160001) do
   end
 
   add_foreign_key "monuments", "users"
+  add_foreign_key "rentals", "monuments"
+  add_foreign_key "rentals", "users"
 end
