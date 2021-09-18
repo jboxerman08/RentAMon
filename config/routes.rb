@@ -5,23 +5,16 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :new, :index] do
     resources :monuments, only: [:create, :show, :new, :index]
   end
+
+  resources :rentals, only: [:create, :show, :new, :index, :edit, :update]
 end
 
 # JOURNEY
 
 # TO IMPLEMENT
-# resources :rentals, only: [:create, :show, :new, :index, :edit, :update]
 # resources :reviews, only: [:create, :new, :show]
 
 # TO DO:
-# rentals
-
-# /users/:id/rentals show
-# monuments/:id/rentals POST  rentals create
-# monuments/:id/rentals/new GET rentals new
-# users/:id/rentals GET rentals index
-# users/:id/rentals/:id/confirm PATCH rentals update
-
 # reviews
 
 # monuments/:id/reviews/new POST  monuments create
@@ -41,3 +34,10 @@ end
 # creates
 # users/:id/monuments/new POST  monuments create ok
 # users/new POST  users create ok
+
+# rentals
+# /users/:id/rentals show
+# monuments/:id/rentals POST  rentals create
+# monuments/:id/rentals/new GET rentals new
+# users/:id/rentals GET rentals index
+# users/:id/rentals/:id/confirm PATCH rentals update
