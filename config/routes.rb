@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: [:create, :show, :new] do
-    resources :monuments, only: [:create, :show, :new, :index]
+    resources :monuments, only: [:show, :index]
   end
-  resources :monuments, only: [:index]
+  resources :monuments, only: [:index, :create, :new]
   resources :rentals, only: [:create, :show, :new, :index, :edit, :update]
 end
 
