@@ -14,7 +14,7 @@ class MonumentsController < ApplicationController
   end
 
   def create
-    @monument= Monument.new(monument_params)
+    @monument = Monument.new(monument_params)
     @monument.user = @url_user_id
     if @monument.save
       redirect_to user_path(@url_user_id)
