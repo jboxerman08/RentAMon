@@ -16,6 +16,8 @@ class MonumentsController < ApplicationController
   def create
     @monument = Monument.new(monument_params)
     @monument.user = @url_user_id
+
+    authorize @monument
     if @monument.save
       redirect_to user_path(@url_user_id)
     else
@@ -27,7 +29,8 @@ class MonumentsController < ApplicationController
     @monument = Monument.find(params[:id])
   end
 
-private
+  private
+
   def monument_params
     params.require(:monument).permit(:name, :availability, :price)
   end
