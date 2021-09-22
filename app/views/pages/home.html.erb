@@ -10,9 +10,9 @@
   <br>
   <%= link_to 'user_session -> Devise/sessions#create', user_session_path(@user) %>
   <br>
-  <%= link_to 'destroy_user_session -> Devise/sessions#destroy (DOESNT WORK - ActiveRecord::RecordNotFound in UsersController#show) ', destroy_user_session_path(@user) %>
+  <%# <%= link_to 'destroy_user_session -> Devise/sessions#destroy (DOESNT WORK - ActiveRecord::RecordNotFound in UsersController#show) ', destroy_user_session_path(@user) %> %>
   <br>
-  <%= link_to 'new_user -> users#new (DOESNT WORK - Pundit::AuthorizationNotPerformedError in UsersController#new)', new_user_path(@user) %>
+  <%# <%= link_to 'new_user -> users#new (DOESNT WORK - Pundit::AuthorizationNotPerformedError in UsersController#new)', new_user_path(@user) %>
   <p>         users POST   /users(.:format)                                                                         users#create
   <p>           user GET    /users/:id(.:format)                                                                     users#show
   <h1>User Password/Resgistrations</h1>

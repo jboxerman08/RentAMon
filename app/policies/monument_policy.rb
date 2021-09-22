@@ -5,10 +5,27 @@ class MonumentPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
+  def new?
+    true
+  end
+
+  def show?
+    true
+  end
+
   def create?
-    return true
+    true
   end
 
   def edit?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end

@@ -1,25 +1,20 @@
 class MonumentsController < ApplicationController
-  before_action :find_user, only: [:index, :create]
-
   def index
-    if @url_user_id
-      @monuments = Monument.where(user: @url_user_id)
-    else
-      @monuments = Monument.all
-    end
+    @monuments = policy_scope(Monument)
   end
 
   def new
     @monument = Monument.new
+    authorize @monument
   end
 
   def create
     @monument = Monument.new(monument_params)
-    @monument.user = @url_user_id
+    @monument.user = current_user
 
     authorize @monument
     if @monument.save
-      redirect_to user_path(@url_user_id)
+      redirect_to monument_path(@monument)
     else
       render new
     end
@@ -27,16 +22,12 @@ class MonumentsController < ApplicationController
 
   def show
     @monument = Monument.find(params[:id])
+    authorize @monument
   end
 
   private
 
   def monument_params
     params.require(:monument).permit(:name, :availability, :price)
-  end
-
-  def find_user
-    url_user_id = params[:id]
-    @url_user_id = User.find(url_user_id) if url_user_id
   end
 end
