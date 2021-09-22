@@ -1,12 +1,13 @@
 <h1>This is my monument index page</h1>
 <h2>Plennnnnty of monuments will show up right below</h2>
-  <div class="monument-card">
-    <% @monuments.each do |monument|%>
-    <%= monument.name %>
-    <!-- no description no coordinate in the index user goes to the show page
-      to get these infos-->
-    <%= monument.price%>
-    <%= monument.availability%>
-    <%= link_to "see more details", monument_path(@monument)%>
-    <% end %>
-  </div>
+
+  <% @monuments.each do |monument|%>
+    <div class="monument-card">
+      <p><%= monument.name %></p>
+      <!-- no description no coordinate in the index user goes to the show page
+        to get these infos-->
+      <p><%= monument.price%>k$</p>
+      <p><%= "available" if monument.availability == true %></p>
+      <%= link_to "see more details", monument_path(monument)%>
+    </div>
+  <% end %>
