@@ -8,6 +8,7 @@
         to get these infos-->
       <p><%= monument.price%>k$</p>
       <p><%= "available" if monument.availability == true %></p>
-      <%= link_to "see more details", monument_path(monument)%>
+      <p><%= link_to "see more details", monument_path(monument)%></p>
+      <p><%= link_to "add a new place to rent", new_monument_path(monument)%></p>
     </div>
   <% end %>
