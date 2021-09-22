@@ -3,11 +3,11 @@
 
   <% @monuments.each do |monument|%>
     <div class="monument-card">
-      <%= monument.name %>
+      <p><%= monument.name %></p>
       <!-- no description no coordinate in the index user goes to the show page
         to get these infos-->
-      <%= monument.price%>
-      <%= monument.availability%>
-      <%= link_to "see more details", monument_path(@monument)%>
+      <p><%= monument.price%>k$</p>
+      <p><%= "available" if monument.availability == true %></p>
+      <%= link_to "see more details", monument_path(monument)%>
     </div>
   <% end %>
