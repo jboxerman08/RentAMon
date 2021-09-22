@@ -1,3 +1,9 @@
-<h1> one monument </h1>
-<%= @monument.name %>
+<h1><%= @monument.name %></h1>
+<h2><%= "available" if @monument.availability == true %></h2>
+<p><%= @monument.description %></p>
+<!-- need to add pictures -->
+<p>This monument for <%= @monument.price %> k$/day</p>
+<p>Coordinates: lat.<%= @monument.latitude %>, long.<%= @monument.longitude %></p>
+
 <%= link_to "back to the list", monuments_path %>
+
