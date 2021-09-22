@@ -1,9 +1,8 @@
-<h1>This is my monument index page</h1>
-<h2>Plennnnnty of monuments will show up right below</h2>
+<h1>Monument index page</h1>
 
   <% @monuments.each do |monument|%>
     <div class="monument-card">
-      <p><%= monument.name %></p>
+      <h2><%= monument.name %></h2>
       <!-- no description no coordinate in the index user goes to the show page
         to get these infos-->
       <p>Price per day: <%= monument.price%>k$</p>
