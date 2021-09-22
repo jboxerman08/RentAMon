@@ -5,9 +5,11 @@
   <div class="monument-card">
     <% @monuments.each do |monument| %>
     <div class="monument-name"><p>monument.name</p></div>
-    <div><p>monument.description</p></div>
-    <div><p>monument.coordinates</p></div>
-    <div><p>monument.pictures</p></div>
+    <div><p><%= monument.description %></p></div>
+    <div><p><%= monument.coordinates %> </p></div>
+    <div><p><%= monument.availability %> </p></div>
+    <div><p><%= monument.price %> </p></div>
+    <div><p><%= monument.pictures %></p></div>
 <div class="container">
     <div><img src="GW1.jpeg"> <img src="GW2.jpeg"> <img src="GW3.jpeg"></div>
 </div>
