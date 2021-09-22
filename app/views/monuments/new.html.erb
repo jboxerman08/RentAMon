@@ -4,9 +4,10 @@
   <%= simple_form_for @monument do |f| %>
     <%= f.input :name, label: 'Name of monument', error: 'Name is mandatory, please specify' %>
     <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :coordinates, label: 'Address' %>
-    <%= f.input :availability, as: :radio_buttons %>
+    <%= f.input :price , label: 'Price (in K$)'%>
+    <%= f.input :latitude , label: 'Latitude' %>
+    <%= f.input :longitude , label: 'Longitude' %>
+    <%= f.input :availability , as: :radio_buttons %>
     <%= f.button :submit %>
   <% end %>
 </div>
