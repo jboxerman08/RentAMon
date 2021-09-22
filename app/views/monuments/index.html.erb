@@ -1,2 +1,16 @@
-<h1>This is my monument index page</h1>
-<h2>Plennnnnty of monuments will show up right below</h2>
+<h1>You are now on the index of our monuments</h1>
+<h2>Discover our fantastic catalogue</h2>
+
+<div>
+  <div class="monument-card">
+    <% @monuments.each do |monument| %>
+    <div class="monument-name"><p>monument.name</p></div>
+    <div><p>monument.description</p></div>
+    <div><p>monument.coordinates</p></div>
+    <div><p>upload a picture (at least 3):</p></div>
+<div class="container">
+    <div><img src="GW1.jpeg"> <img src="GW2.jpeg"> <img src="GW3.jpeg"></div>
+</div>
+    <% end %>
+  </div>
+</div>
