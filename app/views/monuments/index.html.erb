@@ -8,6 +8,7 @@
       <p>Price per day: <%= monument.price%>k$</p>
       <p>status: <%= "available" if monument.availability == true %></p>
       <p><%= link_to "see more details", monument_path(monument)%></p>
-      <p><%= link_to "add a new place to rent", new_monument_path(monument)%></p>
     </div>
+
   <% end %>
+  <p><%= link_to "add a new place to rent", new_monument_path(@monument)%></p>
