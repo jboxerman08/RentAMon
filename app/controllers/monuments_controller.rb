@@ -11,12 +11,12 @@ class MonumentsController < ApplicationController
   def create
 
     @monument = Monument.new(monument_params)
-    @monument.user_id = current_user
+    @monument.user = current_user
 
     authorize @monument
 
     if @monument.save
-      redirect_to monument_path(@monument), notice: 'The monument was successfully created'
+      redirect_to @monument, notice: 'The monument was successfully created'
     else
       render :new
     end

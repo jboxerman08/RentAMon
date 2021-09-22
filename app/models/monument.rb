@@ -1,4 +1,6 @@
 class Monument < ApplicationRecord
+    belongs_to :user
+
     validates :name, presence: true
     validates :availability, presence: true
     validates :price, presence: true
