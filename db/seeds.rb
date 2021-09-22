@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-monuments = Monumnet.create([{ 
+monuments = Monument.create([{ 
   name: 'Taj Mahal', description: 'The Taj Mahal, which means crown of palaces in the Persian language, stands on the riverbanks of the Yamuna River in Agra in northern India.'
   availability: true, price: $12000
   name: 'Statue of Liberty', description: 'The monument stands on Liberty Island in the Hudson River facing New York City. You can climb up the 154 steps from the pedestal to the head of the statue where you can see the fantastic views over the ‘Big Apple’ as New York is often lovingly called.'
