@@ -1,6 +1,61 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%# <%= link_to , user_path(user) %>
+<h2>Links to different pages to test - Can copy/paste tags for other pages once pundit is working </h2>
+<ul>
+  <%= link_to 'root -> pages#home', root_path %>
+  <br>
+  <h1>USER PATHS</h1>
+  <%= link_to 'new_user_session -> Devise/sessions#new', new_user_session_path(@user) %>
+  <br>
+  <%= link_to 'user_session -> Devise/sessions#create', user_session_path(@user) %>
+  <br>
+  <%# <%= link_to 'destroy_user_session -> Devise/sessions#destroy (DOESNT WORK - ActiveRecord::RecordNotFound in UsersController#show) ', destroy_user_session_path(@user) %> %>
+  <br>
+  <%# <%= link_to 'new_user -> users#new (DOESNT WORK - Pundit::AuthorizationNotPerformedError in UsersController#new)', new_user_path(@user) %>
+  <p>         users POST   /users(.:format)                                                                         users#create
+  <p>           user GET    /users/:id(.:format)                                                                     users#show
+  <h1>User Password/Resgistrations</h1>
+  <%= link_to 'new_user_password -> devise/passwords#new', new_user_password_path(current_user) %>
+  <br>
+  <%= link_to 'edit_user_password -> devise/passwords#edit', edit_user_password_path(current_user) %>
+  <br>
+  <%= link_to 'user_password -> devise/passwords#update (DOESNT WORK - ActiveRecord::RecordNotFound in UsersController#show)', user_password_path(@user) %>
+  <br>
+  <p>           user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+  <p>                         PUT    /users/password(.:format)                                                                devise/passwords#update
+  <p>                         POST   /users/password(.:format)                                                                devise/passwords#create
+  <br>
+  <%= link_to 'cancel_user_registration -> devise/registrations#cancel', cancel_user_registration_path(@user) %>
+  <br>
+  <%= link_to 'new_user_registration -> devise/registrations#new', new_user_registration_path(@user) %>
+  <br>
+  <%= link_to 'edit_user_registration -> devise/registrations#edit', edit_user_registration_path(@user) %>
+  <br>
+  <%= link_to 'user_registration -> devise/registrations#update (DOESNT WORK PROPERLY, ROUTING TO BE FIXED', user_registration_path(@user) %>
+  <br>
+  <p> PUT    /users(.:format)                                                                         devise/registrations#update
+  <p> DELETE /users(.:format)                                                                         devise/registrations#destroy
+  <p> POST   /users(.:format)                                                                         devise/registrations#create
 
-<%# <%= link_to list.name, list_path(list) %>
+
+  <h1>MONUMENTS PATHS</h1>
+  <%= link_to 'monuments -> monuments#index (DOESNT WORK - Pundit::PolicyScopingNotPerformedError in MonumentsController#index', monuments_path %>
+  <br>
+  <%= link_to 'new_monument -> monuments#new', new_monument_path(@monument) %>
+  <p>   POST   /monuments(.:format)                                                                     monuments#create
+
+
+  <h1>RENTALS PATHS (Need controller/views)</h1>
+  <p> link_to 'rentals -> rentals#index', rentals_path </p>
+  <p> link_to 'rental -> rentals#show', rental_path(@rental) %> </p>
+  <p> link_to 'new_rental -> rentals#new', new_rental_path(@rental) </p>
+  <p> link_to 'edit_rental -> rentals#edit', edit_rental_path(@rental) </p>
+  <p> POST   /rentals(.:format)                                                                       rentals#create </p>
+  <p> PATCH  /rentals/:id(.:format)                                                                   rentals#update </p>
+  <p> PUT    /rentals/:id(.:format)                                                                   rentals#update </p>
+
+  <h1>others...</h1>
+  <p> user_monuments GET    /users/:user_id/monuments(.:format)                                                      monuments#index
+  <p> user_monument GET    /users/:user_id/monuments/:id(.:format)                                                  monuments#show
+</ul>
