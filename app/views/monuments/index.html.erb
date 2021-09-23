@@ -1,4 +1,5 @@
-<h1>Monument index page</h1>
+<div class="container">
+  <h1>Monument index page</h1>
 
   <% @monuments.each do |monument|%>
     <div class="monument-card">
@@ -9,6 +10,8 @@
       <p>status: <%= "available" if monument.availability == true %></p>
       <p><%= link_to "see more details", monument_path(monument)%></p>
     </div>
-
   <% end %>
+
   <p><%= link_to "add a new place to rent", new_monument_path(@monument)%></p>
+  <%= link_to 'Home', root_path %>
+</div>
