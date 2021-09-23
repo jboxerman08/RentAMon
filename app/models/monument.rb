@@ -11,5 +11,5 @@ class Monument < ApplicationRecord
   validates :longitude, presence: true
   validates :latitude, presence: true
   validates :description, length: { maximum: 450, too_long: "%{count} characters is the maximum allowed" }
-  validates :price, numericality: { only_integer: true }
+  validates :price, numericality: { only_float: true }
 end
