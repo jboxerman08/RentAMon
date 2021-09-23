@@ -4,5 +4,6 @@ class Rental < ApplicationRecord
 
   validates :date_of_delivery, presence: true
   validates :date_of_return, presence: true
-
+  validates :monument_id, allow_blank: false, presence: true
+  validates :user_id, allow_blank: false, presence: true
 end
