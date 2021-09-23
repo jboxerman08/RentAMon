@@ -1,5 +1,5 @@
 <h1>This is where we confirm the rental</h1>
-<%= simple_form_for ([@monumnet, @rental]) do |f| %>
+<%= simple_form_for ([@monument, @rental]) do |f| %>
   <%= f.association :monument, as: :select %>
   <%= f.input :date_of_delivery %>
   <%= f.input :date_of_return %>
