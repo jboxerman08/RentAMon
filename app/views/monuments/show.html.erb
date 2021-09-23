@@ -4,9 +4,9 @@
   <p><%= @monument.description %></p>
 
   <!-- need to add pictures -->
-  <% @monument.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+  <%# <% @monument.photos.each do |photo| %> %>
+    <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %> %>
+  <%# <% end %> %>
 
   <p>This monument for $<%= @monument.price %>/day</p>
   <p>Coordinates: lat.<%= @monument.latitude %>, long.<%= @monument.longitude %></p>
