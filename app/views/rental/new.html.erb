@@ -1,0 +1,9 @@
+
+<h1>hello</h1>
+<%= simple_form_for ([@monument, @rental]) do |f| %>
+<%= f.input :name %>
+<%= f.input :date_of_delivery%>
+<%= f.input :date_of_return%>
+<%= f.submit, "Book now"%>
+
+<% end %>

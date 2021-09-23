@@ -9,6 +9,13 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.create(rental_params)
+    @monument.rental.user = current_user
+
+    @monument = Monument.find(params[:monument_id])
+    @rental.monument = @monument
+
+    autorize @rental
+
     if @rental.save
       redirect_to rental_path(@rental)
     else
