@@ -4,11 +4,15 @@ class RentalsController < ApplicationController
   end
 
   def show
-    @rental - Rental.find(params[:id])
+    @rental = Rental.find(params[:id])
+  end
+
+  def new
+    @monument = Monument.new
   end
 
   def create
-    @rental = Rental.create(rental_params)
+    @rental = Rental.create rental_params
     @monument.rental.user = current_user
 
     @monument = Monument.find(params[:monument_id])
@@ -23,9 +27,7 @@ class RentalsController < ApplicationController
     end
   end
 
-  def new
-    @rental = Rental.new
-  end
+
 
   private
 

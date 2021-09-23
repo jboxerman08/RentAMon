@@ -5,7 +5,9 @@ class MonumentsController < ApplicationController
 
   def new
     @monument = Monument.new
+
     authorize @monument
+
   end
 
   def create
@@ -25,7 +27,10 @@ class MonumentsController < ApplicationController
 
   def show
     @monument = Monument.find(params[:id])
+    @rental = Rental.new
     authorize @monument
+
+
   end
 
   private
