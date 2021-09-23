@@ -9,7 +9,6 @@ class MonumentsController < ApplicationController
   end
 
   def create
-
     @monument = Monument.new(monument_params)
     @monument.user = current_user
 
@@ -20,7 +19,6 @@ class MonumentsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
