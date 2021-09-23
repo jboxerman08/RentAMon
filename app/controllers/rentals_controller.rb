@@ -1,10 +1,13 @@
 class RentalsController < ApplicationController
   def index
-    @rentals = Rental.all
+    # so the rentals made by one user show when he goes to this page see policy
+    # for the scope
+    @rentals = policy_scope(Rental)
   end
 
   def show
-    @rental - Rental.find(params[:id])
+    @rental = Rental.find(params[:id])
+    authorize @rental
   end
 
   def create
@@ -14,7 +17,6 @@ class RentalsController < ApplicationController
     @rental.monument = @monument
 
      authorize @rental
-     authorize @monument
 
     if @rental.save
       redirect_to monument_path(@monument), notice: 'Your booking request has been received'
@@ -25,6 +27,7 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
+    authorize @rental
   end
 
   private
