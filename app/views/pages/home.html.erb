@@ -1,10 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<h2>Links to different pages to test - Can copy/paste tags for other pages once pundit is working </h2>
-<ul>
-  <%= link_to 'root -> pages#home', root_path %>
+  <h1>MONUMENTS PATHS</h1>
+  <%= link_to 'Monuments index', monuments_path %>
   <br>
+  <%= link_to 'form to create a new monument', new_monument_path(@monument) %>
+  <br>
+  <br>
+  <h1>Home page</h1>
+  <%= link_to 'home page', root_path %>
+  <br>
+  <br>
+<h2>Links to different pages to test - Can copy/paste tags </h2>
+<ul>
   <h1>USER PATHS</h1>
   <%= link_to 'new_user_session -> Devise/sessions#new', new_user_session_path(@user) %>
   <br>
@@ -15,7 +23,7 @@
   <%# <%= link_to 'new_user -> users#new (DOESNT WORK - Pundit::AuthorizationNotPerformedError in UsersController#new)', new_user_path(@user) %>
   <p>         users POST   /users(.:format)                                                                         users#create
   <p>           user GET    /users/:id(.:format)                                                                     users#show
-  <h1>User Password/Resgistrations</h1>
+  <h1>User Password/Registrations</h1>
   <%= link_to 'new_user_password -> devise/passwords#new', new_user_password_path(current_user) %>
   <br>
   <%= link_to 'edit_user_password -> devise/passwords#edit', edit_user_password_path(current_user) %>
@@ -38,12 +46,6 @@
   <p> DELETE /users(.:format)                                                                         devise/registrations#destroy
   <p> POST   /users(.:format)                                                                         devise/registrations#create
 
-
-  <h1>MONUMENTS PATHS</h1>
-  <%= link_to 'monuments -> monuments#index (DOESNT WORK - Pundit::PolicyScopingNotPerformedError in MonumentsController#index', monuments_path %>
-  <br>
-  <%= link_to 'new_monument -> monuments#new', new_monument_path(@monument) %>
-  <p>   POST   /monuments(.:format)                                                                     monuments#create
 
 
   <h1>RENTALS PATHS (Need controller/views)</h1>
