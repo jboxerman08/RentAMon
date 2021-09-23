@@ -8,7 +8,7 @@
     <%= f.input :latitude , label: 'Latitude' %>
     <%= f.input :longitude , label: 'Longitude' %>
     <%= f.input :availability , as: :radio_buttons, error: "Monument must be available in order to post"%>
-    <%= f.input :pictures, label: "3 Pictures Minimum", as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, label: "3 Pictures Minimum", as: :file, input_html: { multiple: true } %>
 
     <%= f.button :submit, class:"btn btn-primary" %>
   
