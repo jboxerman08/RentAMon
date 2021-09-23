@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
 
     # give the authorization to rental
     authorize @rental
-    authorize @monument
+
     # need to link monument to rental
     @rental.monument = @monument
     # need to link user to current user
@@ -43,7 +43,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:user_id, :monument_id, :date_of_delivery, :date_of_return)
+    params.require(:rental).permit(:monument, :date_of_delivery, :date_of_return)
   end
 
   def set_rental
