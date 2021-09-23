@@ -18,20 +18,21 @@ class RentalsController < ApplicationController
   def create
     # take the instance rental as a new one and white list it
     @rental = Rental.new(rental_params)
+    @rental.user = current_user
     # take the instance monument that can only be found with :monument_id
-    @monument = Monument.find(params[:id])
+    # @monument = Monument.find(params[:monument_id])
 
     # give the authorization to rental
     authorize @rental
-    authorize @monument
+
     # need to link monument to rental
-    @rental.monument = @monument
+    # @rental.monument = @monument
     # need to link user to current user
-    @rental.user_id = current_user
+
 
     # when it saves go back to the monument#show
     if @rental.save
-      redirect_to monument_path(@monument), notice: 'Your booking request has been received'
+      redirect_to monument_path(@rental.monument), notice: 'Your booking request has been received'
     #or redo the form
     else
       render :new
