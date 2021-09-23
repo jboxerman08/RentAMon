@@ -1,0 +1,8 @@
+<h1>This is where we confirm the rental</h1>
+<%= simple_form_for ([@monumnet, @rental]) do |f| %>
+  <%= f.association :monument, as: :select %>
+  <%= f.input :date_of_delivery %>
+  <%= f.input :date_of_return %>
+  <%= f.submit "Confirm" %>
+<% end %>
+<%= link_to "Cancel", monuments_path %>
