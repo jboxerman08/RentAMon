@@ -4,14 +4,14 @@
   <%= simple_form_for @monument do |f| %>
     <%= f.input :name, label: 'Name of monument', error: 'Name is mandatory, please specify' %>
     <%= f.input :description %>
-    <%= f.input :price , label: 'Price (in K$)'%>
+    <%= f.input :price , label: 'Price (in $/Day)'%>
     <%= f.input :latitude , label: 'Latitude' %>
     <%= f.input :longitude , label: 'Longitude' %>
-    <%= f.input :availability , as: :radio_buttons %>
-    <%= f.input :pictures, label: "upload pictures 3 minimum", as: :file, input_html: { multiple: true } %>
+    <%= f.input :availability , as: :radio_buttons, error: "Monument must be available in order to post"%>
+    <%= f.input :pictures, label: "3 Pictures Minimum", as: :file, input_html: { multiple: true } %>
 
     <%= f.button :submit, class:"btn btn-primary" %>
-    <br>
-    <%= link_to 'Home', root_path %>
+  
+   <p><%= link_to 'Home', root_path %></p>
   <% end %>
 </div>

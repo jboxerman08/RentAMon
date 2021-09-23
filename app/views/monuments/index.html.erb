@@ -1,17 +1,16 @@
 <div class="container">
-  <h1>Monument index page</h1>
+  <h1>Monuments for Rent</h1>
 
   <% @monuments.each do |monument|%>
     <div class="monument-card">
       <h2><%= monument.name %></h2>
       <!-- no description no coordinate in the index user goes to the show page
         to get these infos-->
-      <p>Price per day: <%= monument.price%>k$</p>
-      <p>status: <%= "available" if monument.availability == true %></p>
-      <p><%= link_to "see more details", monument_path(monument)%></p>
+      <p>Price $<%= monument.price%>/Day</p>
+      <p>Status: <%= "Available" if monument.availability == true %></p>
+      <p><%= link_to "See more details", monument_path(monument)%></p>
     </div>
   <% end %>
 
-  <p><%= link_to "add a new place to rent", new_monument_path(@monument)%></p>
-  <%= link_to 'Home', root_path %>
+  <p><%= link_to "Add your Monument", new_monument_path(@monument)%></p>
 </div>
