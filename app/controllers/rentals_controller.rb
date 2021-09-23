@@ -8,9 +8,16 @@ class RentalsController < ApplicationController
   end
 
   def create
-    @rental = Rental.create(rental_params)
+    @rental = Rental.new(rental_params)
+    @monument = Monument.find(params[:monument_id])
+    @rental.user = current_user
+    @rental.monument = @monument
+
+     authorize @rental
+     authorize @monument
+
     if @rental.save
-      redirect_to rental_path(@rental)
+      redirect_to monument_path(@monument), notice: 'Your booking request has been received'
     else
       render :new
     end
