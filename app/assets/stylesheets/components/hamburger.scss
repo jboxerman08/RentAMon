@@ -101,24 +101,14 @@ font-weight: bold;
   display: block;
 }
 
-.menu-bg, #menu-bar{
+#menu-bar{
   // position of my hamburger on the page
   top: var(--position-hamburger-top);
   right: var(--position-hamburger-right);
   position: relative;
 }
 
-.menu-bg{
-  z-index:1;
-  width:0;
-  height: 0;
-  margin:30px 0 20px 20px;
-  background: radial-gradient(circle,$red, $red);
-  border-radius: 50%;
-  transition: 0.3s ease;
 
-
-}
 
 #menu-bar{
   z-index:2;
