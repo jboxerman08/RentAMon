@@ -1,0 +1,44 @@
+.footer {
+  padding: 24px 110px 24px 110px;
+  margin-top: auto;
+  border-top: 1px solid lightgray;
+  background-color: white;
+  text-shadow: 1px 1px lightgrey;
+}
+.footer-logo {
+  position: relative;
+  background-image: url(RentAMonLogo.png);
+  background-blend-mode: luminosity;
+  background-size: 400px;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-origin: content-box;
+}
+.footer-header {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 16px;
+}
+.footer-title {
+  font-size: 30px;
+  text-align: left;
+}
+.footer-body a {
+  font-size: 16px;
+  color: #eb3f3f;
+  padding: 4px;
+}
+.footer a {
+  font-size: 30px;
+  color: #eb3f3f;
+  padding: 4px;
+}
+.footer a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+.footer-copyright {
+  display: flex;
+  border-top: 1px solid lightgray;
+  justify-content: space-between;
+  align-items: baseline;
+}
