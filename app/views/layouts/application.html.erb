@@ -4,17 +4,51 @@
     <title>RentAMon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
+    <!-- for hamburger to work -->
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link href="htpps://fonts.googleapis.com/css?family=PT+Sans">
+    <!-- for hamburger to work -->
   </head>
 
   <body>
+
+    <!-- start for hamburger -->
+    <div id="menu-bar">
+ <!--  -->
+  <div id="menu" onclick="onClickMenu()">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+  <!--  -->
+  <div class="nav" id="nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  </div>
+  <!--  -->
+</div>
+<div class="menu-bg" id="menu-bg"></div>
+
+  <!-- end for hamburger -->
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <!-- start hamburger -->
+    <script src="./index.js"></script>
+    <!-- end hamburger -->
   </body>
 </html>
