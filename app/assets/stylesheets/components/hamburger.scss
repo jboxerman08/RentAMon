@@ -2,8 +2,8 @@
 /*check*/
 // start animation hamburger
 :root {
-  --position-hamburger-right: 0px ;
-  --position-hamburger-top: 0px;
+  --position-hamburger-right: 20px ;
+  --position-hamburger-top: 2px;
 }
 
 body{
@@ -42,14 +42,19 @@ body{
 
 .change #bar1{
   transform: translateY(4px) rotateZ(45deg);
+  background-color:$our-brown;
+
 }
 
 .change #bar3{
   transform: translateY(-6px) rotateZ(-45deg);
+  background-color:$our-brown;
+
 }
 
 .change #bar2{
   opacity: 0;
+
 }
 
 
@@ -57,8 +62,9 @@ body{
 /*I want a cool animation when I click on the hamburger*/
 
 .nav li a{
- color: $black;
+ color: $light-gray;
  text-decoration: none;
+
 }
 
 .nav li a:hover{
@@ -78,6 +84,8 @@ font-weight: bold;
   transition: 0.3s ease;
   display: none;
   border: solid black 2px;
+  background-color: $our-brown;
+  opacity: 0.9;
 }
 
 .change {
@@ -99,6 +107,8 @@ font-weight: bold;
   background: radial-gradient(circle,$red, $red);
   border-radius: 50%;
   transition: 0.3s ease;
+
+
 }
 
 #menu-bar{
@@ -109,6 +119,7 @@ font-weight: bold;
   width: 550px;
   height:540px;
   transform: translate(-80%, 5%);
+
 
 }
 /*I want the hamburger to enlarge when I hover it*/
@@ -125,7 +136,10 @@ font-weight: bold;
 // end animation hamburger
 
 .hamburger-container {
-margin-right: 0px;
-margin-left: 950px;
+margin-left: 83%;
 width: 200px;
+position: -webkit-sticky;
+position: sticky;
+top: 15%;
 }
+
