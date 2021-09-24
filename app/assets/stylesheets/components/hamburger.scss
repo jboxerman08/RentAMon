@@ -1,7 +1,10 @@
 /*i want the hamburger to become a cross when I click on it*/
 /*check*/
-
-
+// start animation hamburger
+:root {
+  --position-hamburger-right: 0px ;
+  --position-hamburger-top: 0px;
+}
 
 body{
   font-family: 'PT Sans', sans-serif;
@@ -54,7 +57,7 @@ body{
 /*I want a cool animation when I click on the hamburger*/
 
 .nav li a{
- color: #fff;
+ color: $black;
  text-decoration: none;
 }
 
@@ -74,6 +77,7 @@ font-weight: bold;
   margin: 0 20px;
   transition: 0.3s ease;
   display: none;
+  border: solid black 2px;
 }
 
 .change {
@@ -81,9 +85,9 @@ font-weight: bold;
 }
 
 .menu-bg, #menu-bar{
-  top: 0;
-  left: 0;
-  // position absolute changed to relative
+  // position of my hamburger on the page
+  top: var(--position-hamburger-top);
+  right: var(--position-hamburger-right);
   position: relative;
 }
 
@@ -104,7 +108,7 @@ font-weight: bold;
 .change-bg{
   width: 550px;
   height:540px;
-  transform: translate(-60%,-30%);
+  transform: translate(-80%, 5%);
 
 }
 /*I want the hamburger to enlarge when I hover it*/
@@ -118,4 +122,10 @@ font-weight: bold;
   transform: translateY(8px);
 
 }
+// end animation hamburger
 
+.hamburger-container {
+margin-right: 0px;
+margin-left: 950px;
+width: 200px;
+}

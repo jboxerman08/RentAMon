@@ -27,25 +27,28 @@
   </div>
 
  <!-- start for hamburger -->
-    <div id="menu-bar">
+  <div id="menu-bar">
  <!--  -->
-  <div id="menu" onclick="onClickMenu()">
-    <div id="bar1" class="bar"></div>
-    <div id="bar2" class="bar"></div>
-    <div id="bar3" class="bar"></div>
-  </div>
+    <div id="menu" onclick="onClickMenu()">
+      <div id="bar1" class="bar"></div>
+      <div id="bar2" class="bar"></div>
+      <div id="bar3" class="bar"></div>
+    </div>
   <!--  -->
-  <div class="nav" id="nav">
+  </div>
+  </div>
+
+  <div class="nav hamburger-container" id="nav">
   <ul>
-    <li><%= link_to "my booking", monuments_path %></li>
-    <li><%= link_to "my monuments", monuments_path %></li>
-    <li><%= link_to "rentAmon catalogue ", monuments_path %></li>
+    <div><li><%= link_to "my booking", monuments_path %></li></div>
+    <div><li><%= link_to "my monuments", monuments_path %></li></div>
+    <div><li><%= link_to "rentAmon catalogue ", monuments_path %></li></div>
   </ul>
 
   </div>
   <!--  -->
-</div>
-<div class="menu-bg" id="menu-bg"></div>
+
+  <div class="menu-bg" id="menu-bg"></div>
 
   <!-- end for hamburger -->
 
@@ -57,10 +60,8 @@ const menuBg = document.getElementById("menu-bg")
 function onClickMenu(){
   menu.classList.toggle("change");
   nav.classList.toggle("change");
-  menuBg.classList.toggle("change-bg");
+  // menuBg.classList.toggle("change-bg");
 };
 
 </script>
-
-</div>
 
