@@ -1,0 +1,131 @@
+/*i want the hamburger to become a cross when I click on it*/
+/*check*/
+// start animation hamburger
+:root {
+  --position-hamburger-right: 0px ;
+  --position-hamburger-top: 0px;
+}
+
+body{
+  font-family: 'PT Sans', sans-serif;
+  background-color: $light-gray;
+}
+
+#menu{
+  /*background-color: white;*/
+  width: 35px;
+  height: 30px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar{
+  height: 5px;
+  width:100%;
+  background-color:$red;
+  display: block;
+  border-radius: 5px;
+  transition: 0.5s ease;
+}
+
+#bar1{
+    transform: translateY(-4px);
+}
+
+#bar3{
+    transform: translateY(4px);
+}
+
+.change .bar{
+  background-color: $red;
+}
+
+.change #bar1{
+  transform: translateY(4px) rotateZ(45deg);
+}
+
+.change #bar3{
+  transform: translateY(-6px) rotateZ(-45deg);
+}
+
+.change #bar2{
+  opacity: 0;
+}
+
+
+
+/*I want a cool animation when I click on the hamburger*/
+
+.nav li a{
+ color: $black;
+ text-decoration: none;
+}
+
+.nav li a:hover{
+font-weight: bold;
+}
+
+
+.nav li {
+  list-style: none;
+  padding: 16px 0;
+}
+
+
+.nav {
+  padding: 0;
+  margin: 0 20px;
+  transition: 0.3s ease;
+  display: none;
+  border: solid black 2px;
+}
+
+.change {
+  display: block;
+}
+
+.menu-bg, #menu-bar{
+  // position of my hamburger on the page
+  top: var(--position-hamburger-top);
+  right: var(--position-hamburger-right);
+  position: relative;
+}
+
+.menu-bg{
+  z-index:1;
+  width:0;
+  height: 0;
+  margin:30px 0 20px 20px;
+  background: radial-gradient(circle,$red, $red);
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+#menu-bar{
+  z-index:2;
+}
+
+.change-bg{
+  width: 550px;
+  height:540px;
+  transform: translate(-80%, 5%);
+
+}
+/*I want the hamburger to enlarge when I hover it*/
+
+
+#menu:hover .bar1{
+  transform: translateY(-8px);
+}
+
+#menu:hover .bar3{
+  transform: translateY(8px);
+
+}
+// end animation hamburger
+
+.hamburger-container {
+margin-right: 0px;
+margin-left: 950px;
+width: 200px;
+}
