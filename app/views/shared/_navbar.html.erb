@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
 
 
-      <li> <a class="nav-link" href="/">Home</a>
+      <li> <%= link_to "Home", monuments_path %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Dashboard</a>
+        <%= link_to "Dashboard", dashboard_path %>
       </li>
     <!-- identify the current user -->
       <% if user_signed_in? %>
