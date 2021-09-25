@@ -43,14 +43,14 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
      @rental.approve
      @rental.save
-       redirect_to rentals_path
+       redirect_to dashboard_path
   end
 
   def mark_as_decline
     @rental = Rental.find(params[:id])
     @rental.decline
     @rental.save
-      redirect_to rentals_path
+      redirect_to dashboard_path
   end
 
   def status?
