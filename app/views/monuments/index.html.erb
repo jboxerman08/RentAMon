@@ -2,30 +2,29 @@
   <div class="banner-text">
     <h1>RentAMon</h1>
     <p>Your <strong>monument</strong> shipped <strong>anywhere</strong> in the <strong>world</strong>!</p>
-    <a class="btn btn-primary" href="#">Book today! (Or search bar here?)</a>
+    <a class="btn btn-primary" href="#">CHANGE BUTTON FOR SEARCH BAR!</a>
   </div>
 </div>
 
 <div class="container">
   <h1>Monuments for Rent</h1>
-  <% @monuments.each do |monument|%>
-    <div class="monument-card">
-
-      <% monument.photos.first do |photo| %>
-        <%= cl_image_tag photo.key %>
-      <% end %>
-      # <%# <%= cl_image_tag monument.photos[0] %> %>
-
-      <div class="monument-infos">
-        <h2><%= monument.name %></h2>
-        <p>Price $<%= monument.price%>/Day</p>
-        <% if monument.user != current_user %>
-          <p>Status: <%= "Available" if monument.availability == true %></p>
+  <div class="col-6 col-md-4">
+    <% @monuments.each do |monument|%>
+      <div class="monument-card">
+        <% monument.photos.each_with_index do |photo, i| %>
+          <%= cl_image_tag photo.key if i < 1 %>
         <% end %>
-        <p><%= link_to "See more details", monument_path(monument)%></p>
+        <div class="monument-infos">
+          <h2><%= monument.name %></h2>
+          <p>Price $<%= monument.price%>/Day</p>
+            <% if monument.user != current_user %>
+              <p>Status: <%= "Available" if monument.availability == true %></p>
+            <% end %>
+          <p><%= link_to "See more details", monument_path(monument)%></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <p><%= link_to "Add your Monument", new_monument_path(@monument)%></p>
 </div>

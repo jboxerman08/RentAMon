@@ -1,3 +1,16 @@
+// .card-container {
+//   @include media-breakpoint-down(sm) {
+//     column-count: 1;
+//   }
+//   column-count: 2;
+//   column-gap: 2.0rem;
+//   margin-bottom: 8px;
+//   display: inline-block;
+//   width: 100%;
+//   box-sizing: content-box;
+//   margin-bottom: 1rem;
+//   white-space: nowrap;
+// }
 .monument-card {
   border-radius: 4px;
   overflow: hidden;
@@ -6,11 +19,8 @@
   margin-bottom: 32px;
 }
 .monument-card .monument-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  padding: 24px;
+  text-align: center;
 }
 .monument-card > img {
   height: 200px;
