@@ -14,3 +14,14 @@
 // };
 
 // export { hamburger };
+function onClickMenu (){ menu.addEventListener("click", (event)=> {
+const menu = document.getElementById("menu")
+const nav = document.getElementById("nav")
+event.preventDefault();
+console.log(event.currentTarget);
+menu.classList.toggle("change");
+nav.classList.toggle("change");
+});
+}
+
+export { onClickMenu };
