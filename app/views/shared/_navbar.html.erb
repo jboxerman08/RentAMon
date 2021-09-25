@@ -15,7 +15,7 @@
       <li> <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
+        <a class="nav-link" href="#">Dashboard</a>
       </li>
     <!-- identify the current user -->
       <% if user_signed_in? %>
@@ -48,9 +48,9 @@
 
   <div class="nav hamburger-container" id="nav">
   <ul>
-    <div><li><%= link_to "my booking", monuments_path %></li></div>
-    <div><li><%= link_to "my monuments", monuments_path %></li></div>
-    <div><li><%= link_to "rentAmon catalogue ", monuments_path %></li></div>
+    <div><li><%= link_to "My Bookings", monuments_path %></li></div>
+    <div><li><%= link_to "My Monuments", monuments_path %></li></div>
+    <div><li><%= link_to "RentAMon Catalogue ", monuments_path %></li></div>
   </ul>
 
   </div>
