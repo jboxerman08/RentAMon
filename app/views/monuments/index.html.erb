@@ -15,9 +15,8 @@
       <!-- no description no coordinate in the index user goes to the show page
         to get these infos-->
       <p>Price $<%= monument.price%>/Day</p>
-
       <% if monument.user != current_user %>
-      <p>Status: <%= "Available" if monument.availability == true %></p>
+        <p>Status: <%= "Available" if monument.availability == true %></p>
       <% end %>
       <p><%= link_to "See more details", monument_path(monument)%></p>
     </div>
