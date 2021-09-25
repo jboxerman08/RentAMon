@@ -10,8 +10,12 @@
   <h1>Monuments for Rent</h1>
   <% @monuments.each do |monument|%>
     <div class="monument-card">
-      <%= cl_image_tag monument.photos %>
-      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+
+      <% monument.photos.first do |photo| %>
+        <%= cl_image_tag photo.key %>
+      <% end %>
+      # <%# <%= cl_image_tag monument.photos[0] %> %>
+
       <div class="monument-infos">
         <h2><%= monument.name %></h2>
         <p>Price $<%= monument.price%>/Day</p>
