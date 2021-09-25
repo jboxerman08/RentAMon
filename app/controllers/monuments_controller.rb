@@ -1,11 +1,16 @@
 class MonumentsController < ApplicationController
   def index
     @monuments = policy_scope(Monument)
+    @monuments = Monument.where.not(latitude: nil, longitude: nil)
+    @markers = @monuments.map do |monument|
+      {lat: monument.latitude, lng: monument.longitude}
+    end
   end
 
   def new
     @monument = Monument.new
     authorize @monument
+    @markers = {latitude: @monument.latitude, longitude: @monument.longitude}
   end
 
   def create

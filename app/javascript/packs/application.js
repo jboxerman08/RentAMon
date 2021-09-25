@@ -24,8 +24,10 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
-import { onClickMenu } from '../components/hamburger.js'
+import { onClickMenu } from '../components/hamburger.js';
+import{ initMapbox } from '../components/geocoder.js';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -33,7 +35,13 @@ import { onClickMenu } from '../components/hamburger.js'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
 onClickMenu();
+initMapbox();
+
 
   // initSelect2();
 });
+
+
+
+
 
