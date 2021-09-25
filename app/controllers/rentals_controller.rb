@@ -39,6 +39,29 @@ class RentalsController < ApplicationController
     end
   end
 
+  def approve
+    @rental = Rental.find_by_id(params[:id])
+     @rental.update(state: "approved")
+     if @rental.state == "approved"
+       flash[:success] = "Booking successfully approved"
+       redirect_to rentals_path
+     else
+       flash[:error] = "Rental is pending"
+       redirect_to rentals_path
+     end
+  end
+
+  def decline
+    @rental = Rental.find_by_id(params[:id])
+    @rental.update(state: "declined")
+    if @rental.state == "declined"
+      flash[:success] = "Rental declined"
+      redirect_to rentals_path
+    else
+      flash[:error] = "Rental is pending"
+      redirect_to rentals_path
+    end
+  end
 
 
   private
