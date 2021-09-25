@@ -1,0 +1,29 @@
+<h1>Hello <%=  @user.name %> </h1>
+<h2> Welcome to your dashboard,</h2>
+
+<p><%=  @user.email_address %></p>
+
+
+<h2>Messages:</h2>
+<h2>Your monuments</h2>
+<!-- if user is a owner and a user booked his monument -->
+<!-- if Booking_request.count > 1 requests
+  else request-->
+You have have [Request.count] request(s) pending.
+[monument.name] for [rental.delivery_date] to [rental.delivery_date]
+<!-- button -->
+accept [TRUE] deny[FALSE]
+
+<!-- If TRUE send confirmation to the USER that made the RENTAL from the SHOW or is it the User that made the form on CREATE from MONUMENT -->
+<!-- If FALSE send refusal -->
+
+<h2>Your booking</h2>
+<!-- CONFIRMATION be like-->
+You have have [booking.count] booking confirmations.
+[monument.name] for [rental.delivery_date] to [rental.delivery_date] has been confirmed.
+Have fun!
+
+<!-- REFUSAL be like-->
+[monument.name] for [rental.delivery_date] to [rental.delivery_date] has been confirmed.
+Unfortunately, your booking request could not be confirmed.
+Please try again later or try now for another period of time.
