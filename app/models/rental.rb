@@ -6,4 +6,12 @@ class Rental < ApplicationRecord
   validates :date_of_return, presence: true
   validates :monument_id, allow_blank: false, presence: true
   validates :user_id, allow_blank: false, presence: true
+  
+  def approve
+    self.status = true
+  end
+
+  def decline
+    self.status = false
+  end
 end

@@ -8,9 +8,14 @@ Rails.application.routes.draw do
   resources :monuments, only: [:index, :show, :create, :new]
   resources :rentals, only: [:create, :show, :new, :index, :edit, :update]
 
-  patch '/rentals/:id' to: 'rentals#approve'
-  put '/rentals/:id' to: 'rentals#decline'
+  patch '/rentals/:id', to: 'rentals#approve'
+  put '/rentals/:id', to: 'rentals#decline'
+  get '/rentals/:id', to: 'rentals#status'
+  get '/dashboard', to: 'pages#dashboard'
 end
+
+
+
 
 # JOURNEY
 

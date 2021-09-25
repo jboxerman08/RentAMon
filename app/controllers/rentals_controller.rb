@@ -39,30 +39,30 @@ class RentalsController < ApplicationController
     end
   end
 
-  def approve
-    @rental = Rental.find_by_id(params[:id])
-     @rental.update(state: "approved")
-     if @rental.state == "approved"
-       flash[:success] = "Booking successfully approved"
+  def mark_as_approved
+    @rental = Rental.find(params[:id])
+     @rental.approve
+     @rental.save
        redirect_to rentals_path
-     else
-       flash[:error] = "Rental is pending"
-       redirect_to rentals_path
-     end
   end
 
-  def decline
+  def mark_as_decline
+    @rental = Rental.find(params[:id])
+    @rental.decline
+    @rental.save
+      redirect_to rentals_path
+  end
+
+  def status?
     @rental = Rental.find_by_id(params[:id])
-    @rental.update(state: "declined")
-    if @rental.state == "declined"
-      flash[:success] = "Rental declined"
-      redirect_to rentals_path
-    else
-      flash[:error] = "Rental is pending"
-      redirect_to rentals_path
+    if @rental.status == nil
+    "Rental status is pending"
+    elsif true
+      "Rental approved"
+    else false
+      "Rental has been declined"
     end
   end
-
 
   private
 
