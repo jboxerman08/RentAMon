@@ -5,12 +5,10 @@
   --position-hamburger-right: 20px ;
   --position-hamburger-top: 2px;
 }
-
 body{
   font-family: 'PT Sans', sans-serif;
   background-color: $light-gray;
 }
-
 #menu{
   /*background-color: white;*/
   width: 35px;
@@ -18,7 +16,6 @@ body{
   margin: 30px 0 20px 20px;
   cursor: pointer;
 }
-
 .bar{
   height: 5px;
   width:100%;
@@ -27,102 +24,69 @@ body{
   border-radius: 5px;
   transition: 0.5s ease;
 }
-
 #bar1{
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 }
-
 #bar3{
-    transform: translateY(4px);
+  transform: translateY(4px);
 }
-
 .change .bar{
   background-color: $red;
 }
-
 .change #bar1{
   transform: translateY(4px) rotateZ(45deg);
   background-color:$our-brown;
-
 }
-
 .change #bar3{
   transform: translateY(-6px) rotateZ(-45deg);
   background-color:$our-brown;
-
 }
-
 .change #bar2{
   opacity: 0;
-
 }
-
-
 
 /*I want a cool animation when I click on the hamburger*/
 
 .nav li a{
  color: $light-gray;
  text-decoration: none;
-
 }
-
 .nav li a:hover{
-font-weight: bold;
+  font-weight: bold;
 }
-
-
 .nav li {
   list-style: none;
   padding: 16px 0;
 }
-
-
 .nav {
   padding: 0;
   margin: 0 20px;
   transition: 0.3s ease;
   display: none;
-  border: solid black 2px;
+  border: solid $black 2px;
   background-color: $our-brown;
   opacity: 0.9;
-
-
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
-
-
-
-
-
 
 .change {
   display: block;
 }
-
 #menu-bar{
   // position of my hamburger on the page
   top: var(--position-hamburger-top);
   right: var(--position-hamburger-right);
   position: relative;
 }
-
-
-
 #menu-bar{
   z-index:2;
 }
-
 .change-bg{
   width: 550px;
   height:540px;
   transform: translate(-80%, 5%);
-
-
 }
 /*I want the hamburger to enlarge when I hover it*/
-
 
 #menu:hover .bar1{
   transform: translateY(-8px);
@@ -135,10 +99,11 @@ font-weight: bold;
 // end animation hamburger
 
 .hamburger-container {
-margin-left: 83%;
-width: 200px;
-position: -webkit-sticky;
-position: sticky;
-top: 15%;
+  margin-left: 83%;
+  width: 200px;
+  position: fixed;
+  text-align: center;
 }
-
+.hamburger-container > ul {
+  padding: 0px;
+}
