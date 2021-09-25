@@ -8,17 +8,18 @@
 
 <div class="container">
   <h1>Monuments for Rent</h1>
-
   <% @monuments.each do |monument|%>
     <div class="monument-card">
-      <h2><%= monument.name %></h2>
-      <!-- no description no coordinate in the index user goes to the show page
-        to get these infos-->
-      <p>Price $<%= monument.price%>/Day</p>
-      <% if monument.user != current_user %>
-        <p>Status: <%= "Available" if monument.availability == true %></p>
-      <% end %>
-      <p><%= link_to "See more details", monument_path(monument)%></p>
+      <%= cl_image_tag monument.photos %>
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
+      <div class="monument-infos">
+        <h2><%= monument.name %></h2>
+        <p>Price $<%= monument.price%>/Day</p>
+        <% if monument.user != current_user %>
+          <p>Status: <%= "Available" if monument.availability == true %></p>
+        <% end %>
+        <p><%= link_to "See more details", monument_path(monument)%></p>
+      </div>
     </div>
   <% end %>
 
