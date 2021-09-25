@@ -1,6 +1,8 @@
 <div class="container">
   <h1><%= @monument.name %></h1>
-  <h2><%= "Available" if @monument.availability == true %></h2>
+  <% if @monument.user != current_user %>
+    <h2><%= "Available" if @monument.availability == true %></h2>
+  <% end %>
   <p>Description: <%= @monument.description %></p>
 
   <!-- need to add pictures -->
@@ -11,6 +13,8 @@
   <p>Rent this monument for: $<%= @monument.price %>/day</p>
   <p>Coordinates: lat.<%= @monument.latitude %>, long.<%= @monument.longitude %></p>
 
-  <p><%= link_to 'Book now', new_rental_path(@monument) %></p>
+  <% if @monument.user != current_user %>
+    <p><%= link_to 'Book now', new_rental_path(@monument) %></p>
+  <% end %>
   <p><%= link_to "Back to Monuments List", monuments_path %></p>
 </div>
