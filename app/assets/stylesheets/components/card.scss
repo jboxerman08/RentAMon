@@ -1,26 +1,23 @@
-// .card-container {
-//   @include media-breakpoint-down(sm) {
-//     column-count: 1;
-//   }
-//   column-count: 2;
-//   column-gap: 2.0rem;
-//   margin-bottom: 8px;
-//   display: inline-block;
-//   width: 100%;
-//   box-sizing: content-box;
-//   margin-bottom: 1rem;
-//   white-space: nowrap;
-// }
+.cards {
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 16px;
+}
 .monument-card {
   border-radius: 4px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 .monument-card .monument-infos {
-  padding: 24px;
+  padding: 16px;
   text-align: center;
+  text-shadow: 1px 1px lightgrey;
 }
 .monument-card > img {
   height: 200px;
@@ -28,12 +25,12 @@
   object-fit: cover;
 }
 .monument-card h2 {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 .monument-card p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
 }

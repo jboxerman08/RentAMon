@@ -6,25 +6,24 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="text-align: center;">
   <h1>Monuments for Rent</h1>
-  <div class="col-6 col-md-4">
+  <div class="cards">
     <% @monuments.each do |monument|%>
-      <div class="monument-card">
-        <% monument.photos.each_with_index do |photo, i| %>
-          <%= cl_image_tag photo.key if i < 1 %>
-        <% end %>
-        <div class="monument-infos">
-          <h2><%= monument.name %></h2>
-          <p>Price $<%= monument.price%>/Day</p>
-            <% if monument.user != current_user %>
-              <p>Status: <%= "Available" if monument.availability == true %></p>
-            <% end %>
-          <p><%= link_to "See more details", monument_path(monument)%></p>
+        <div class="monument-card">
+          <% monument.photos.each_with_index do |photo, i| %>
+            <%= cl_image_tag photo.key if i < 1 %>
+          <% end %>
+          <div class="monument-infos">
+            <h2><%= monument.name %></h2>
+            <p>Price $<%= monument.price%>/Day</p>
+              <% if monument.user != current_user %>
+                <p>Status: <%= "Available" if monument.availability == true %></p>
+              <% end %>
+            <p><%= link_to "See more details", monument_path(monument)%></p>
+          </div>
         </div>
-      </div>
     <% end %>
   </div>
-
-  <p><%= link_to "Add your Monument", new_monument_path(@monument)%></p>
+  <div class="btn btn-secondary"><%= link_to "Add your Monument", new_monument_path(@monument)%></div>
 </div>
