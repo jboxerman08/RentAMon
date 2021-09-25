@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :monuments, only: [:index, :show, :create, :new]
   resources :rentals, only: [:create, :show, :new, :index, :edit, :update]
+
+  patch '/rentals/:id' to: 'rentals#approve'
+  put '/rentals/:id' to: 'rentals#decline'
 end
 
 # JOURNEY
