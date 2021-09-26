@@ -20,12 +20,13 @@ const fitMapToMarkers = (map, markers) => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-// markers
-const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((marker) => {
+  // markers
+  const markers = JSON.parse(mapElement.dataset.markers);
+    markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
+
+    new mapboxgl.Marker({ "color": "#E12947" })
+      .setLngLat([ marker.lng, marker.lat])
       .setPopup(popup)
       .addTo(map);
 
@@ -33,9 +34,6 @@ const markers = JSON.parse(mapElement.dataset.markers);
 
 
 fitMapToMarkers(map, markers);
-
-
-
 
   }
 };
