@@ -2,11 +2,12 @@ class MonumentsController < ApplicationController
   def index
     @monuments = policy_scope(Monument)
 
-     @markers = @monuments.geocoded.map do |monument|
+    @markers = @monuments.geocoded.map do |flat|
       {
-        lat: monument.latitude,
-        lng: monument.longitude
+        lat: flat.latitude,
+        lng: flat.longitude
       }
+
     end
   end
 
