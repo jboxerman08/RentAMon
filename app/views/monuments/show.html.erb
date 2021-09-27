@@ -9,11 +9,11 @@
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
-  <p>Rent this monument for: $<%= @monument.price %>/day</p>
-  <p>Coordinates: lat.<%= @monument.latitude %>, long.<%= @monument.longitude %></p>
+    <% if @monument.user != current_user %>
+      <p><%= link_to 'Book now', new_rental_path(@monument) %> for $<%= @monument.price %>/day</p>
+    <% else %>
+      <p>This monument belongs to you</p>
+    <% end %>
 
-  <% if @monument.user != current_user %>
-    <p><%= link_to 'Book now', new_rental_path(@monument) %></p>
-  <% end %>
   <p><%= link_to "Back to Monuments List", monuments_path %></p>
 </div>
