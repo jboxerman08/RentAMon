@@ -22,13 +22,17 @@
   font-size: 30px;
   text-align: left;
 }
+.footer-body {
+  display: grid;
+  line-height: 1;
+}
 .footer-body a {
   font-size: 16px;
   color: #eb3f3f;
   padding: 4px;
 }
 .footer a {
-  font-size: 30px;
+  font-size: 24px;
   color: #eb3f3f;
   padding: 4px;
   text-shadow: 1px 1px lightgrey;

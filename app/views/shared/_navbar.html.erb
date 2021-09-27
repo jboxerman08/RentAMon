@@ -1,8 +1,7 @@
-
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="/about">
     <img src="https://res.cloudinary.com/jbox/image/upload/v1632582060/production/rentamon_logo_red_no_bckground_sxn2lc.png" />
-</a>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,13 +9,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
-
-      <li> <%= link_to "Home", monuments_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Dashboard", dashboard_path %>
-      </li>
+      <li class="nav-item"><%= link_to "Home", root_path %></li>
+      <li class="nav-item"><%= link_to "Dashboard", dashboard_path %></li>
     <!-- identify the current user -->
       <% if user_signed_in? %>
       <li class="nav-item active">
@@ -47,16 +41,13 @@
   </div>
 
   <div class="nav hamburger-container" id="nav">
-  <ul>
-    <div><li><%= link_to "My Bookings", monuments_path %></li></div>
-    <div><li><%= link_to "My Monuments", monuments_path %></li></div>
-    <div><li><%= link_to "RentAMon Catalogue ", monuments_path %></li></div>
-  </ul>
-
+    <ul>
+      <div><li><%= link_to "My Bookings", dashboard_path %></li></div>
+      <div><li><%= link_to "My Monuments", monuments_path %></li></div>
+      <div><li><%= link_to "RentAMon Catalogue ", monuments_path %></li></div>
+    </ul>
   </div>
   <!--  -->
-
-
   <!-- end for hamburger -->
 
 
