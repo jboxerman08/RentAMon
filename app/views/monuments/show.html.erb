@@ -1,19 +1,26 @@
 <div class="container">
   <h1><%= @monument.name %></h1>
-  <% if @monument.user != current_user %>
-    <h2><%= "Available" if @monument.availability == true %></h2>
-  <% end %>
+    <% if @monument.user != current_user %>
+      <h2><%= "Available" if @monument.availability == true %></h2>
+    <% end %>
   <p>Description: <%= @monument.description %></p>
 
-  <% @monument.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+    <% @monument.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
 
   <p>Rent this monument for: $<%= @monument.price %>/day</p>
   <p>Coordinates: lat.<%= @monument.latitude %>, long.<%= @monument.longitude %></p>
 
-  <% if @monument.user != current_user %>
-    <p><%= link_to 'Book now', new_rental_path(@monument) %></p>
-  <% end %>
+    <% if @monument.user != current_user %>
+      <p><%= link_to 'Book now', new_rental_path(@monument) %></p>
+    <% end %>
   <p><%= link_to "Back to Monuments List", monuments_path %></p>
+
+  <div id="map" style="width: 100%; height: 250px;"
+  data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
+<!-- mape ends here -->
 </div>

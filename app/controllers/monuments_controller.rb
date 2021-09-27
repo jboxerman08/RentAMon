@@ -33,6 +33,11 @@ class MonumentsController < ApplicationController
   def show
     @monument = Monument.find(params[:id])
     authorize @monument
+    # add the @markers here
+    # @markers =
+    # geocoded is a scompe from the geocoder gem
+    # @monument.geocoded dont seem to be recognised
+
   end
 
   private
