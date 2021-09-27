@@ -33,6 +33,8 @@ class MonumentsController < ApplicationController
   def show
     @monument = Monument.find(params[:id])
     authorize @monument
+
+
   end
 
   private
