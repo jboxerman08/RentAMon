@@ -15,35 +15,32 @@
 
 <div class="container" style="text-align: center;">
   <h1>Monuments for Rent</h1>
+  <div class="cards">
     <% @monuments.each do |monument|%>
-      <%= link_to monument_path(monument) do %>
-        <div class="cards">
-          <div class="monument-card">
-            <% monument.photos.each_with_index do |photo, i| %>
-              <%= cl_image_tag photo.key if i < 1 %>
-            <% end %>
+      <div class="monument-card">
+        <a href=<%= monument_path(monument) %> >
+          <% monument.photos.each_with_index do |photo, i| %>
+            <%= cl_image_tag photo.key if i < 1 %>
+          <% end %>
           <div class="monument-infos">
             <h2><%= monument.name %></h2>
             <p>Price $<%= monument.price%>/Day</p>
-            <% if monument.user != current_user %>
-              <p>Status: <%= "Available" if monument.availability == true %></p>
-              <p><%= link_to "See more details", monument_path(monument)%></p>
-            <% end %>
+            <p>Status: <%= monument.availability ? "Available" : "Not Available" %></p>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        </a>
+      </div>
+    <% end %>
+  </div>
 
-  <div class="btn btn-secondary"><%= link_to "Add your Monument", new_monument_path(@monument)%></div>
+  <div class="btn btn-secondary">
+    <%= link_to "Add your Monument", new_monument_path(@monument)%>
+  </div>
+
   <!-- map starts here -->
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-<!-- mape ends here -->
+  <div id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <!-- map ends here -->
 </div>
-
-
