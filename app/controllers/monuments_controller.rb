@@ -1,6 +1,15 @@
 class MonumentsController < ApplicationController
   def index
     @monuments = policy_scope(Monument)
+
+    @markers = @monuments.geocoded.map do |monument|
+      {
+        lat: monument.latitude,
+        lng: monument.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { monument: monument })
+      }
+
+    end
   end
 
   def new
