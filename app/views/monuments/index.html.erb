@@ -26,4 +26,14 @@
     <% end %>
   </div>
   <div class="btn btn-secondary"><%= link_to "Add your Monument", new_monument_path(@monument)%></div>
+  <!-- map starts here -->
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+<!-- mape ends here -->
 </div>
+
+
