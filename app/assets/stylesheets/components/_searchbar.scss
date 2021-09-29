@@ -17,17 +17,18 @@
   color: black
 }
 .searchButton {
-  height: 36px;
+  height: 100%;
   border: 1px solid #eb3f3f;
   background: #eb3f3f;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 23px;
+  font-size: 28px;
   padding: 4px;
   border: 0;
-  margin: -12px;
+  margin: -11px;
+  vertical-align: sub;
 }
 #search_form {
   display: inline;
