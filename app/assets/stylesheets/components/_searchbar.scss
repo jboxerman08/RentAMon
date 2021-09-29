@@ -18,7 +18,6 @@
   color: black
 }
 .searchButton {
-  width: 40px;
   height: 36px;
   border: 1px solid #eb3f3f;
   background: #eb3f3f;
@@ -26,7 +25,10 @@
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 23px;
+  padding: 4px;
+  border: 0;
+  margin: -12px;
 }
 #search_form {
   display: inline;
