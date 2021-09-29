@@ -28,7 +28,7 @@ class MonumentsController < ApplicationController
     authorize @monument
 
     if @monument.save
-      redirect_to @monument, notice: 'The monument was successfully created'
+      redirect_to @monument, notice: 'The monument  was successfully created'
     else
       render :new
     end
@@ -37,6 +37,13 @@ class MonumentsController < ApplicationController
   def show
     @monument = Monument.find(params[:id])
     authorize @monument
+
+     @markers =
+      [{
+        lat: @monument.latitude,
+        lng: @monument.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { monument: @monument })
+      }]
   end
 
   private
