@@ -23,17 +23,17 @@
 
         <p> You have have <span><%=pluralize @rental_requests_received.count, "request" %> pending:</span><p>
 
-        <% @rental_requests_received.each do |rental| %>
-          <%= rental.name %> for <%= rental.date_of_delivery %> to <%= rental.date_of_return %>
-        <% end %>
-        <!-- button -->
+        <% @rental_requests_received.select { |rental| rental.status.nil? }.each do |rental| %>
+        <%= rental.monument.name %> for <%= rental.date_of_delivery %> to <%= rental.date_of_return %>
+        
+          <!-- button -->
 
-        <div class="d-flex justify-content-center buttons">
+          <div class="d-flex justify-content-center buttons">
           <!-- got to call the right .status? with those buttons -> should send the appropriate message to the user-->
-          <button class="accept-button">accept</button>
-          <button class="decline-button">decline</button>
-        </div>
-
+          <%= link_to 'Approve', accept_path(rental), method: :patch, class: 'btn blue blue-btn', data: { confirm: "Confirm this request?" } %>
+          <%= link_to 'Decline', decline_path(rental), method: :patch, method: :patch, class: 'btn red red-btn', data: { confirm: "Confirm this request?" }%>
+          </div>
+        <% end %>
       </div>
 
       <!-- If TRUE send confirmation to the USER that made the RENTAL from the SHOW or is it the User that made the form on CREATE from MONUMENT -->

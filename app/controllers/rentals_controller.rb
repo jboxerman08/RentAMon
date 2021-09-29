@@ -1,4 +1,5 @@
 class RentalsController < ApplicationController
+  
   def index
     # so the rentals made by one user show when he goes to this page see policy
     # for the scope
@@ -41,16 +42,18 @@ class RentalsController < ApplicationController
 
   def mark_as_approved
     @rental = Rental.find(params[:id])
-     @rental.approve
-     @rental.save
-       redirect_to dashboard_path
+    authorize @rental
+    @rental.approve
+    @rental.save
+    redirect_to dashboard_path
   end
 
-  def mark_as_decline
+  def mark_as_declined
     @rental = Rental.find(params[:id])
+    authorize @rental
     @rental.decline
     @rental.save
-      redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
   def status?
