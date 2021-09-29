@@ -1,6 +1,11 @@
 class MonumentsController < ApplicationController
   def index
-    @monuments = policy_scope(Monument)
+    if params[:query].present?
+      sql_query = "name @@ :query OR address @@ :query"
+      @monuments = policy_scope(Monument).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @monuments = policy_scope(Monument)
+    end
 
     @markers = @monuments.geocoded.map do |monument|
       {
@@ -8,7 +13,6 @@ class MonumentsController < ApplicationController
         lng: monument.longitude,
         info_window: render_to_string(partial: "info_window", locals: { monument: monument })
       }
-
     end
   end
 
@@ -24,7 +28,7 @@ class MonumentsController < ApplicationController
     authorize @monument
 
     if @monument.save
-      redirect_to @monument, notice: 'The monument was successfully created'
+      redirect_to @monument, notice: 'The monument  was successfully created'
     else
       render :new
     end
@@ -33,6 +37,13 @@ class MonumentsController < ApplicationController
   def show
     @monument = Monument.find(params[:id])
     authorize @monument
+
+     @markers =
+      [{
+        lat: @monument.latitude,
+        lng: @monument.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { monument: @monument })
+      }]
   end
 
   private
