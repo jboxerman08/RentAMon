@@ -14,5 +14,13 @@ class RentalPolicy < ApplicationPolicy
     def show?
     true
   end
+
+  def mark_as_approved?
+    true
+  end
+
+  def mark_as_declined?
+    true
+  end
 end
 
