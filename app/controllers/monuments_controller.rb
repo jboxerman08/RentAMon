@@ -1,6 +1,11 @@
 class MonumentsController < ApplicationController
   def index
-    @monuments = policy_scope(Monument)
+    if params[:query].present?
+      sql_query = "name @@ :query OR address @@ :query"
+      @monuments = policy_scope(Monument).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @monuments = policy_scope(Monument)
+    end
 
     @markers = @monuments.geocoded.map do |monument|
       {
@@ -8,7 +13,6 @@ class MonumentsController < ApplicationController
         lng: monument.longitude,
         info_window: render_to_string(partial: "info_window", locals: { monument: monument })
       }
-
     end
   end
 
