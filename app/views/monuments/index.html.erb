@@ -2,14 +2,21 @@
   <div class="banner-text">
     <h1>RentAMon</h1>
     <p>Your <strong>monument</strong> shipped <strong>anywhere</strong> in the <strong>world</strong>!</p>
-    <div class="wrap">
-      <div class="search">
-        <input type="text" class="searchTerm" placeholder="What are you looking for?">
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
+    <%# SEARCH BAR START %>
+    <div class="search">
+      <%= form_tag monuments_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "search_form",
+          class: "searchTerm",
+          placeholder: "What are you looking for?"
+          %>
+        <%= button_tag type: "submit" do %>
+          <i class="fa fa-search searchButton"></i>
+        <% end %>
+      <% end %>
     </div>
+    <%# SEARCH BAR END%>
   </div>
 </div>
 
