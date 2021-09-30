@@ -58,13 +58,7 @@ class RentalsController < ApplicationController
 
   def status?
     @rental = Rental.find_by_id(params[:id])
-    if @rental.status == nil
-    "Rental status is pending"
-    elsif true
-      "Rental approved"
-    else false
-      "Rental has been declined"
-    end
+    @rental.status
   end
 
   private

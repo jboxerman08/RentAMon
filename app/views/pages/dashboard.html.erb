@@ -44,27 +44,21 @@
       <div class="renter-section">
         <h2>Your bookings:</h2>
         <!-- CONFIRMATION be like-->
-          <% @my_rentals.each do |f| %>
-            <% if @my_rentals.count > 1 %>
-              Those are the rentals you made a request for:
-
-              <% if f.status? == true %>
-                <%= f.current_user.name %> for <%=f.date_of_delivery %> to <%= f.date_of_delivery %> has been confirmed.
-                Have fun!
-
-          <!-- REFUSAL be like-->
+        Those are the rentals you made a request for:
+        <br>
+        <br>
+          <% @my_rentals.select do |f| %>
+          <%= f.monument.name %> for <%=f.date_of_delivery %> to <%= f.date_of_delivery %>
+            <% if f.status == nil  %>
+              <p> Rental is pending </p>
+              <% elsif f.status == true  %>
+              <p> Rental is approved </p>
               <% else %>
-                <p><%= f.current_user.name %> for <%=f.date_of_delivery %> to <%= f.date_of_delivery %> has been denied.</p>
-                <p> Unfortunately, your booking request could not be confirmed. </p>
-                <p> Please try again later or try now for another period of time. </p>
+              <p> Rental is declined </p>
               <% end %>
-
-
-            <%else%>
-              <p>This section is <span>empty</span>.</p>
-              <p> Have a look at our catalogue for your next big event.</p>
-            <% end %>
-
+          <% end %>
+          <% if @my_rentals.count > 4 %>
+          <% @my_rentals.first.destroy %>
           <% end %>
 
       </div>
