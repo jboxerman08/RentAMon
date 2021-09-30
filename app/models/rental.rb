@@ -14,4 +14,5 @@ class Rental < ApplicationRecord
   def decline
     self.status = false
   end
+
 end
