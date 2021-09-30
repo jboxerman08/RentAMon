@@ -4,6 +4,7 @@
 
 
 <%= simple_form_for ([@monument, @rental]) do |f| %>
+  <%= f.association :monument, as: :select %>
   <%= f.input :date_of_delivery, html5: true %>
   <%= f.input :date_of_return, html5: true  %>
   <%= f.submit "Confirm" %>
