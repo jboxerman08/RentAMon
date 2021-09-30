@@ -20,10 +20,10 @@
         <!-- if user is a owner and a user booked his monument -->
         <!-- if Booking_request.count > 1 requests
           else request-->
+          
+        <p> You have have <span><%=pluralize @pending_rental_requests_received.count, "request" %> pending:</span><p>
 
-        <p> You have have <span><%=pluralize @rental_requests_received.count, "request" %> pending:</span><p>
-
-        <% @rental_requests_received.select { |rental| rental.status.nil? }.each do |rental| %>
+        <% @pending_rental_requests_received.each do |rental| %>
         <%= rental.monument.name %> for <%= rental.date_of_delivery %> to <%= rental.date_of_return %>
         
           <!-- button -->
@@ -47,8 +47,8 @@
         Those are the rentals you made a request for:
         <br>
         <br>
-          <% @my_rentals.select do |f| %>
-          <%= f.monument.name %> for <%=f.date_of_delivery %> to <%= f.date_of_delivery %>
+          <% @my_rentals[0..3].select do |f| %>
+          <%= f.monument.name %> for <%=f.date_of_delivery %> to <%= f.date_of_return %>
             <% if f.status == nil  %>
               <p> Rental is pending </p>
               <% elsif f.status == true  %>
@@ -57,10 +57,6 @@
               <p> Rental is declined </p>
               <% end %>
           <% end %>
-          <% if @my_rentals.count > 4 %>
-          <% @my_rentals.first.destroy %>
-          <% end %>
-
       </div>
 
     </div>
