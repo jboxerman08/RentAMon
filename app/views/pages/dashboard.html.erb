@@ -20,12 +20,11 @@
         <!-- if user is a owner and a user booked his monument -->
         <!-- if Booking_request.count > 1 requests
           else request-->
-
         <p> You have have <span><%=pluralize @rental_requests_received.count, "request" %> pending:</span><p>
 
         <% @rental_requests_received.select { |rental| rental.status.nil? }.each do |rental| %>
         <%= rental.monument.name %> for <%= rental.date_of_delivery %> to <%= rental.date_of_return %>
-        
+
           <!-- button -->
 
           <div class="d-flex justify-content-center buttons">
@@ -35,11 +34,8 @@
           </div>
         <% end %>
       </div>
-
       <!-- If TRUE send confirmation to the USER that made the RENTAL from the SHOW or is it the User that made the form on CREATE from MONUMENT -->
       <!-- If FALSE send refusal -->
-
-
       <!-- RENTER -->
       <div class="renter-section">
         <h2>Your bookings:</h2>
@@ -47,30 +43,20 @@
         Those are the rentals you made a request for:
         <br>
         <br>
-          <% @my_rentals.select do |f| %>
+        <% @my_rentals.select do |f| %>
           <%= f.monument.name %> for <%=f.date_of_delivery %> to <%= f.date_of_delivery %>
-            <% if f.status == nil  %>
-              <p> Rental is pending </p>
-              <% elsif f.status == true  %>
-              <p> Rental is approved </p>
-              <% else %>
-              <p> Rental is declined </p>
-              <% end %>
+          <% if f.status == nil  %>
+            <p> Rental is pending </p>
+          <% elsif f.status == true  %>
+            <p> Rental is approved </p>
+          <% else %>
+            <p> Rental is declined </p>
           <% end %>
-          <% if @my_rentals.count > 4 %>
+        <% end %>
+        <% if @my_rentals.count > 4 %>
           <% @my_rentals.first.destroy %>
-          <% end %>
-
+        <% end %>
       </div>
-
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
