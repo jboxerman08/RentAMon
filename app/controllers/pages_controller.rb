@@ -23,6 +23,5 @@ class PagesController < ApplicationController
     @rental_requests_received = Rental.joins(:monument).where(monuments: { user_id: current_user.id })
 
     @pending_rental_requests_received = @rental_requests_received.select { |rental| rental.status.nil? }
-
   end
 end
